@@ -1,1 +1,57 @@
-/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+.root{
+	-fx-focus-color: transparent;
+	-fx-background-color:rgb(46,52,54)
+}
+
+.tab-pane *.tab-header-background {
+    -fx-background-color: transparent;
+}
+
+.tab {
+	-fx-background-color: #00ff00;
+    -fx-text-fill:rgb(46,52,54);
+}
+
+.label{
+	-fx-text-fill: #00ff00;
+}
+
+.button{
+	-fx-background-color: #00ff00;
+}
+
+#playButton, #playButton:selected, #skipButton, #previousButton, #shuffleButton, #volumeButton{
+	-fx-background-color: transparent;
+}
+
+#playButton {
+  	-fx-graphic: url("../res/img/btn_play.png");
+}
+
+#playButton:selected {
+  	-fx-graphic: url("../res/img/btn_pause.png");
+  	}
+
+#skipButton{
+  	-fx-graphic: url("../res/img/btn_skip.png");
+}
+
+#previousButton{
+  	-fx-graphic: url("../res/img/btn_previous.png");
+}
+
+#shuffleButton{
+  	-fx-graphic: url("../res/img/btn_shuffle.png");
+}
+
+#volumeButton{
+	-fx-graphic: url("../res/img/btn_volume.png");
+}
+
+#tabPane {
+	-fx-background-image: url("../res/img/background.png");
+	-fx-background-repeat: stretch; 
+	-fx-background-size: 600px 400px;
+	-fx-background-position: center center;
+    -fx-effect: dropshadow(three-pass-box, black, 30, 0.5, 0, 0); 
+}

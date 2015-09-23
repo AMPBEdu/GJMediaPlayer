@@ -19,4 +19,6 @@ Goals :
 
 5. Create an html5 website client for streaming music from a library
 
+
+
 MAKE SURE to submit your ideas to improve the software by opening an issue, or forking and improving/adding your code to the project.

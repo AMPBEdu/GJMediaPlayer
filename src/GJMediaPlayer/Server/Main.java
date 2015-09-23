@@ -1,4 +1,4 @@
-package GJMediaPLayer.Server;
+package GJMediaPlayer.Server;
 
 public class Main {
 
