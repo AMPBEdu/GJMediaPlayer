@@ -16,8 +16,12 @@
 	-fx-text-fill: #00ff00;
 }
 
-.button{
+.button, .slider .track{
 	-fx-background-color: #00ff00;
+}
+
+.button{
+	-fx-focus-color: transparent;
 }
 
 #playButton, #playButton:selected, #skipButton, #previousButton, #shuffleButton, #volumeButton{
