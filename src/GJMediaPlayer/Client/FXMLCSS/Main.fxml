@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<TabPane fx:id="tabPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1">
+<TabPane fx:id="tabPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GJMediaPlayer.Client.Controller.GJMainController">
   <tabs>
     <Tab fx:id="musicTab" text="Music">
          <content>
@@ -17,9 +17,9 @@
                   <Button fx:id="previousButton" layoutX="169.0" layoutY="280.0" mnemonicParsing="false" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="80.0" />
                   <Button fx:id="shuffleButton" layoutX="339.0" layoutY="280.0" mnemonicParsing="false" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="180.0" />
                   <Slider layoutX="64.0" layoutY="331.0" prefHeight="16.0" prefWidth="490.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="65.0" AnchorPane.rightAnchor="65.0" />
-                  <Label layoutX="14.0" layoutY="336.0" text="0:00" AnchorPane.leftAnchor="15.0" />
-                  <Label layoutX="558.0" layoutY="336.0" text="x:xx" AnchorPane.rightAnchor="15.0" />
-                  <Label layoutX="10.0" layoutY="87.0" text="Insert song metadata and album cover up here" />
+                  <Label layoutX="14.0" layoutY="336.0" text="0:00" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" />
+                  <Label layoutX="558.0" layoutY="336.0" text="x:xx" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="15.0" />
+                  <Label layoutX="15.0" layoutY="129.0" text="Insert song metadata and album cover up here" />
                   <Label layoutX="443.0" layoutY="14.0" text="Playlist selector here" />
                   <Label layoutX="391.0" layoutY="40.0" text="Maybe go to library tab to edit" />
                   <Label layoutX="380.0" layoutY="65.0" text="playlists and play specific songs" />
@@ -27,7 +27,8 @@
                   <ToggleButton fx:id="volumeButton" layoutX="376.0" layoutY="281.0" mnemonicParsing="false" AnchorPane.bottomAnchor="40.0" AnchorPane.rightAnchor="180.0" />
                   <Slider fx:id="volumeSlider" layoutX="396.0" layoutY="207.0" orientation="VERTICAL" prefHeight="83.0" prefWidth="16.0" AnchorPane.bottomAnchor="85.0" />
                   <Label layoutX="164.0" layoutY="19.0" text="&lt;--- Opens new window" />
-                  <Button layoutX="10.0" layoutY="52.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="134.0" text="Mini Player" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="455.0" AnchorPane.topAnchor="50.0" />
+                  <Button layoutX="10.0" layoutY="52.0" mnemonicParsing="false" text="Mini Player" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="455.0" AnchorPane.topAnchor="50.0" />
+                  <Button layoutX="15.0" layoutY="82.0" mnemonicParsing="false" text="Load MP3" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="455.0" AnchorPane.topAnchor="85.0" />
                </children>
             </AnchorPane>
          </content></Tab>

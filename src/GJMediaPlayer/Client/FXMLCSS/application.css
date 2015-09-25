@@ -1,6 +1,5 @@
 .root{
 	-fx-focus-color: transparent;
-	-fx-background-color:rgb(46,52,54)
 }
 
 .tab-pane *.tab-header-background {
@@ -9,7 +8,10 @@
 
 .tab {
 	-fx-background-color: #00ff00;
-    -fx-text-fill:rgb(46,52,54);
+}
+
+.tab:selected{
+	/* FIX WHEN HAVE INTERWEBS */
 }
 
 .label{
@@ -46,10 +48,6 @@
 
 #shuffleButton{
   	-fx-graphic: url("../res/img/btn_shuffle.png");
-}
-
-#volumeButton{
-	-fx-graphic: url("../res/img/btn_volume.png");
 }
 
 #tabPane {
