@@ -1,4 +1,4 @@
-package GJMediaPlayer.Client;
+package gjMediaPlayer.Client;
 
 import java.util.prefs.*;
 

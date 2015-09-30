@@ -1,5 +1,6 @@
-package GJMediaPlayer.Client;
+package gjMediaPlayer.Client;
 	
+import gjMediaPlayer.Client.Media.PlayerHandler;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
@@ -20,6 +21,8 @@ public class Main extends Application {
 			primaryStage.setResizable(false);
 			primaryStage.setTitle("GJMediaPlayer Client Alpha");
 			primaryStage.show();
+			
+			PlayerHandler test = new PlayerHandler();
 			
 		} catch(Exception e) {
 			e.printStackTrace(); 
