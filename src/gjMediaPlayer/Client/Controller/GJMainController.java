@@ -5,7 +5,9 @@ import java.util.ResourceBundle;
 import java.util.concurrent.TimeUnit;
 
 import gjMediaPlayer.Client.Config;
+import gjMediaPlayer.Client.Util;
 import gjMediaPlayer.Client.Media.PlayerHandler;
+import gjMediaPlayer.Client.Media.Song;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -18,6 +20,7 @@ import javafx.scene.control.ToggleButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.util.Duration;
 
 public class GJMainController implements Initializable {
@@ -54,25 +57,26 @@ public class GJMainController implements Initializable {
         initUI();
         
         PlayerHandler playerhandler = new PlayerHandler();
-        PlayerHandler.setCurrentMediaPlayer(testMedia);
         
 		durationListener = new ChangeListener<Duration>() {
 			@Override
 			public void changed(ObservableValue<? extends Duration> observableValue, Duration oldValue,
 					Duration newValue) {
-				Duration currentTime = PlayerHandler.getCurrentMediaPlayer().getCurrentTime();
-				Duration totalTime = PlayerHandler.getCurrentMediaPlayer().getMedia().getDuration();
+				Duration currentTime = PlayerHandler.getCurrentSong().getPlayer().getCurrentTime();
+				Duration totalTime = PlayerHandler.getCurrentSong().getMedia().getDuration();
 				Duration timeLeft = totalTime.subtract(currentTime);
 				
-				leftTime.setText(formatTime(currentTime));
-				rightTime.setText(formatTime(timeLeft));
+				leftTime.setText(Util.formatDuration(currentTime));
+				rightTime.setText(Util.formatDuration(timeLeft));
 				
-				progressSlider.setValue(100.0 * PlayerHandler.getCurrentMediaPlayer().getCurrentTime().toMillis() / PlayerHandler.getCurrentMediaPlayer().getTotalDuration().toMillis());
+				progressSlider.setValue(100.0 * PlayerHandler.getCurrentSong().getPlayer().getCurrentTime().toMillis() / PlayerHandler.getCurrentSong().getPlayer().getTotalDuration().toMillis());
 			}
 		};
 		
-		PlayerHandler.getCurrentMediaPlayer().currentTimeProperty().addListener(durationListener);
+		PlayerHandler.getCurrentSong().getPlayer().currentTimeProperty().addListener(durationListener);
         mp3Loader.setOnAction(e -> {
+        	System.out.println();
+			//playerhandler.loadMedia(testMedia);
         });
         
         
@@ -80,9 +84,9 @@ public class GJMainController implements Initializable {
         playButton.setOnAction(e -> {
         	play = !play;
         	if (play)
-        		PlayerHandler.getCurrentMediaPlayer().play();
+        		PlayerHandler.getCurrentSong().getPlayer().play();
         	else{
-        		PlayerHandler.getCurrentMediaPlayer().pause();
+        		PlayerHandler.getCurrentSong().getPlayer().pause();
         	}
         });
         
@@ -95,7 +99,7 @@ public class GJMainController implements Initializable {
         volumeButton.setOnAction(e -> volumeSlider.setVisible(!volumeSlider.isVisible()));
         volumeSlider.setOnMouseReleased(e -> {
         	config.setVolume(volumeSlider.getValue());
-        	PlayerHandler.getCurrentMediaPlayer().setVolume(Config.getVolume());
+        	PlayerHandler.getCurrentSong().getPlayer().setVolume(Config.getVolume());
         	setVolumeImage(volumeSlider.getValue());
         });
     }
@@ -108,8 +112,8 @@ public class GJMainController implements Initializable {
     }
     
     //Load metadata
-    private void loadMedia(Media media){
-    	rightTime.setText(formatTime(media.getDuration()));
+    public void loadMetadata(Media media){
+    	rightTime.setText(Util.formatDuration(media.getDuration()));
     }
     
     private void setVolumeImage(double newValue){
@@ -132,16 +136,5 @@ public class GJMainController implements Initializable {
     		return null;
     	}
     	
-    }
-    
-    private String formatTime(Duration time){
-		int minutes = (int)time.toMinutes();
-		int seconds = (int)time.toSeconds() - (minutes * 60);
-		
-		String formattedTime = String.format("%d:%d", minutes, seconds);
-		
-		if(seconds < 10)
-			formattedTime = String.format("%d:0%d", minutes, seconds);
-		return formattedTime;
     }
 }

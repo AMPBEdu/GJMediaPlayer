@@ -18,7 +18,7 @@ import java.util.*;
 
 /** Example of playing all audio files in a given directory. */
 public class Example extends Application {
-	private static final String MUSIC_DIR = "C:/Users/Andrew/Documents/Music/Zedd/Clarity";
+	private static final String MUSIC_DIR = "C:/Users/Andrew/Documents/Music/test/";
 	public static final String TAG_COLUMN_NAME = "Tag";
 	public static final String VALUE_COLUMN_NAME = "Value";
 	public static final List<String> SUPPORTED_FILE_EXTENSIONS = Arrays.asList(".mp3", ".m4a");

@@ -1,8 +1,5 @@
 package gjMediaPlayer.Client.Media;
 
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
-
 //Handles playing of songs, and makes sure multiple songs aren't playing at once.
 public class PlayerHandler {
 	
@@ -10,31 +7,22 @@ public class PlayerHandler {
 	
 	private static Artist currentArtist = null;
 	private static PlayList currentPlayList = null;
-	private static MediaPlayer currentMediaPlayer = null;
-	private static Media currentMedia = null;
+	private static Song currentSong = new Song("");
 	
 	
 	public void play(Artist artist){
-		currentMediaPlayer.stop();
+		currentSong.getPlayer().stop();
 	}
 	
 	public void play(PlayList playlist){
-		currentMediaPlayer.stop();
+		currentSong.getPlayer().stop();
 	 }
-	//possibly will be removed
-	public void play(MediaPlayer mediaplayer){
-		if(currentMediaPlayer != null)
-			currentMediaPlayer.stop();
-		currentMediaPlayer = mediaplayer;
-		currentMediaPlayer.play();
-	}
 	
-	public void play(Media dir){
-		MediaPlayer mediaplayer = new MediaPlayer(dir);
-		if(currentMediaPlayer != null)
-			currentMediaPlayer.stop();
-		currentMediaPlayer = mediaplayer;
-		currentMediaPlayer.play();
+	public void play(Song song){
+		if(currentSong !=null)
+			currentSong.getPlayer().stop();
+		currentSong = song;
+		currentSong.getPlayer().play();
 	}
 	
 	public void playNext(){
@@ -44,40 +32,28 @@ public class PlayerHandler {
 	public void playPrevious(){
 		
 	}
-	
-	//Getters
-	public static MediaPlayer getCurrentMediaPlayer(){
-		return currentMediaPlayer;
-	}
-	
-	public static PlayList getCurrentPlayList(){
-		return currentPlayList;
-	}
-	
-	public static Artist getCurrentArtist(){
+
+	public static Artist getCurrentArtist() {
 		return currentArtist;
 	}
-	
-	public static Media getCurrentMedia() {
-		return currentMedia;
+
+	public static void setCurrentArtist(Artist currentArtist) {
+		PlayerHandler.currentArtist = currentArtist;
 	}
 
-	//Setters
+	public static PlayList getCurrentPlayList() {
+		return currentPlayList;
+	}
+
 	public static void setCurrentPlayList(PlayList currentPlayList) {
 		PlayerHandler.currentPlayList = currentPlayList;
 	}
 
-	public static void setCurrentMediaPlayer(MediaPlayer mediaplayer) {
-		PlayerHandler.currentMediaPlayer = mediaplayer;
-	}
-	
-	public static void setCurrentMediaPlayer(Media media){
-		MediaPlayer mediaplayer = new MediaPlayer(media);
-		PlayerHandler.currentMediaPlayer = mediaplayer;
-	}
-	
-	public static void setCurrentMedia(Media currentMedia) {
-		PlayerHandler.currentMedia = currentMedia;
+	public static Song getCurrentSong() {
+		return currentSong;
 	}
 
+	public static void setCurrentSong(Song currentSong) {
+		PlayerHandler.currentSong = currentSong;
+	}
 }
